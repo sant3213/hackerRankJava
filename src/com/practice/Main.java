@@ -99,4 +99,66 @@ public class Main {
         System.out.println(numberFormat.format(positiveCount) + "\n" + numberFormat.format(negativeCount) + "\n" + numberFormat.format(zeroCount));
     }
 
+    static void staircase(int n) {
+        int numberOfSpaces = 0;
+        int symbol = 1;
+        int counter = 0;
+        while (counter < n) {
+            numberOfSpaces = n - symbol;
+            for (int i = 0; i < numberOfSpaces; i++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < symbol; j++) {
+                System.out.print("#");
+            }
+            System.out.print("\n");
+            counter += 1;
+            symbol += 1;
+        }
+    }
+
+    static void miniMaxSum(/*int[] arr*/) {
+        int[] arr = new int[5];
+        arr[0] = 156873294;
+        arr[1] = 719583602;
+        arr[2] = 581240736;
+        arr[3] = 605827319;
+        arr[4] = 895647130;
+        int omitNumber = 0;
+        ArrayList<Long> resultingValues = new ArrayList<Long>();
+        long sum = 0;
+        for (int j = 0; j < arr.length; j++) {
+            sum = 0;
+            for (int i = 0; i < arr.length; i++) {
+                if (j != i) {
+                    sum += arr[i];
+                }
+            }
+            resultingValues.add(sum);
+        }
+
+        System.out.println(Collections.min(resultingValues) + " " + Collections.max(resultingValues));
+    }
+
+    static int birthdayCakeCandles(/*int[] ar*/) {
+        int[] arr = new int[4];
+        arr[0] = 3;
+        arr[1] = 2;
+        arr[2] = 1;
+        arr[3] = 3;
+        ArrayList<Integer> numbersList = new ArrayList<Integer>();
+        int counter = 0;
+        for (int i = 0; i < arr.length; i++) {
+            numbersList.add(arr[i]);
+        }
+        int maxNumber = Collections.max(numbersList);
+        for (int i = 0; i < arr.length; i++) {
+            if (maxNumber == arr[i]) {
+                counter += 1;
+            }
+        }
+        System.out.println(counter);
+        return counter;
+    }
+
 }
